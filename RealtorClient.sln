@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealtorClient", "RealtorClient.csproj", "{0F4FCE0D-616F-4C7D-9887-16FB91493988}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F4FCE0D-616F-4C7D-9887-16FB91493988}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F4FCE0D-616F-4C7D-9887-16FB91493988}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F4FCE0D-616F-4C7D-9887-16FB91493988}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F4FCE0D-616F-4C7D-9887-16FB91493988}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0065BA59-93DF-43F1-B8CB-6B9170F7681C}
+	EndGlobalSection
+EndGlobal

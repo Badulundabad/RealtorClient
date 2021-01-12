@@ -1,0 +1,108 @@
+﻿<Window x:Class="RealtorClient.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RealtorClient.View"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <DataTemplate x:Key="LogItem_Template">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding DateTime}"/>
+                <TextBlock Text="{Binding Text}" Grid.Column="1"/>
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="200"/>
+        </Grid.RowDefinitions>
+        <ListBox Name="Log"
+                 Grid.Row="2"
+                 Grid.ColumnSpan="4"
+                 Background="Green"
+                 ItemsSource="{Binding Log}" 
+                 ItemTemplate="{StaticResource LogItem_Template}"/>
+        <Button Name="LogIn" 
+                Content="Log In" 
+                Grid.Row="1"
+                Command="{Binding Path=LoginCommand}">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=LoginName, Path=Text}" Value="">
+                            <Setter Property="IsEnabled" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=LoginPass, Path=Text}" Value="">
+                            <Setter Property="IsEnabled" Value="False"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button Name="Register" 
+                Content="Register" 
+                Grid.Row="1" 
+                Grid.Column="1"
+                Command="{Binding Path=RegisterCommand}">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=RegName, Path=Text}" Value="">
+                            <Setter Property="IsEnabled" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=RegPass1, Path=Text}" Value="">
+                            <Setter Property="IsEnabled" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=RegPass2, Path=Text}" Value="">
+                            <Setter Property="IsEnabled" Value="False"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <StackPanel Name="LoginStack">
+            <TextBlock Text="Name"/>
+            <TextBox Name="LoginName" Background="Yellow" Text="{Binding Name}"/>
+            <TextBlock Text="Password"/>
+            <TextBox Name="LoginPass" Background="Yellow" Text="{Binding Password}"/>
+        </StackPanel>
+        <StackPanel Name="RegStack" Grid.Column="1">
+            <TextBlock Text="Name"/>
+            <TextBox Name="RegName" Background="Yellow" Text="{Binding Name}"/>
+            <TextBlock Text="Password"/>
+            <TextBox Name="RegPass1" Background="Yellow" Text="{Binding Password}"/>
+            <TextBlock Text="Password"/>
+            <TextBox Name="RegPass2" Background="Yellow" Text="{Binding CheckPassword}"/>
+        </StackPanel>
+        <Border Name="LoginIndicator"
+                Height="50"
+                Width="50"
+                CornerRadius="50"
+                Grid.Column="2">
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Setter Property="Background" Value="Red"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsLoggedIn}" Value="True">
+                            <Setter Property="Background" Value="Green"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+        </Border>
+    </Grid>
+</Window>
